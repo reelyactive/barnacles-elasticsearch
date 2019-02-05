@@ -18,7 +18,8 @@
     "url": "https://github.com/reelyactive/barnacles-elasticsearch.git"
   },
   "dependencies": {
-    "elasticsearch": "^15.3.0"
+    "elasticsearch": "^15.3.0",
+    "raddec": ">=0.2.0"
   },
   "devDependencies": {},
   "bugs": {
