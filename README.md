@@ -38,7 +38,7 @@ __barnacles-elasticsearch__ supports the following options:
 | node          | "http://localhost:9200"   | Elasticsearch node             |
 | client        | null                      | An instantiated Elasticsearch client |
 | printErrors   | false                     | Print errors to the console (for debug) |
-| raddecOptions | { includePackets: false } | See [raddec](https://github.com/reelyactive/raddec/) toFlatten() options |
+| raddecOptions | { includePackets: false } | See [raddec](https://github.com/reelyactive/raddec/) toFlattened() options |
 
 By default __barnacles-elasticsearch__ will connect and write to localhost:9200.
 
