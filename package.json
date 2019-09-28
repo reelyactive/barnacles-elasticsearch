@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.0.0",
-    "raddec": ">=0.2.4"
+    "raddec": ">=0.2.5"
   },
   "devDependencies": {},
   "bugs": {
