@@ -5,12 +5,13 @@
   "description": "Elasticsearch interface for barnacles.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
+    "Pareto Anywhere",
     "Elasticsearch",
     "barnacles"
   ],
-  "version": "0.2.2",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=10.0.0"
   },
   "main": "./lib/barnacleselasticsearch.js",
   "repository": {
@@ -18,8 +19,8 @@
     "url": "https://github.com/reelyactive/barnacles-elasticsearch.git"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^7.0.0",
-    "raddec": ">=0.2.5"
+    "@elastic/elasticsearch": "~7.13.0",
+    "raddec": "~0.2.7"
   },
   "devDependencies": {},
   "bugs": {

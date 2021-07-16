@@ -1,7 +1,7 @@
 barnacles-elasticsearch
 =======================
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  We believe in an open Internet of Things.
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  Stores _raddec_ and/or _dynamb_ events in Elasticsearch.  We believe in an open Internet of Things.
 
 
 Installation
@@ -33,12 +33,14 @@ Options
 
 __barnacles-elasticsearch__ supports the following options:
 
-| Property      | Default                   | Description                    | 
-|:--------------|:--------------------------|:-------------------------------|
-| node          | "http://localhost:9200"   | Elasticsearch node             |
-| client        | null                      | An instantiated Elasticsearch client |
-| printErrors   | false                     | Print errors to the console (for debug) |
-| raddecOptions | { includePackets: false } | See [raddec](https://github.com/reelyactive/raddec/) toFlattened() options |
+| Property      | Default                    | Description                    | 
+|:--------------|:---------------------------|:-------------------------------|
+| node          | "http://localhost:9200"    | Elasticsearch node             |
+| client        | null                       | An instantiated Elasticsearch client |
+| printErrors   | false                      | Print errors to the console (for debug) |
+| eventsToStore | { raddec: {}, dynamb: {} } | See default event-specific properties below |
+
+For raddec events, all [raddec](https://github.com/reelyactive/raddec/) toFlattened() options are supported.  The default is { includePackets: false }.
 
 By default __barnacles-elasticsearch__ will connect and write to localhost:9200.
 
