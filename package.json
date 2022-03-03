@@ -9,7 +9,7 @@
     "Elasticsearch",
     "barnacles"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -19,7 +19,7 @@
     "url": "https://github.com/reelyactive/barnacles-elasticsearch.git"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^7.15.0",
+    "@elastic/elasticsearch": "~7.12.0",
     "raddec": "^0.2.8"
   },
   "devDependencies": {},
