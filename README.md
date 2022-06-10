@@ -45,6 +45,20 @@ For raddec events, all [raddec](https://github.com/reelyactive/raddec/) toFlatte
 By default __barnacles-elasticsearch__ will connect and write to localhost:9200.
 
 
+Contributing
+------------
+
+Discover [how to contribute](CONTRIBUTING.md) to this open source project which upholds a standard [code of conduct](CODE_OF_CONDUCT.md).
+
+
+Security
+--------
+
+Consult our [security policy](SECURITY.md) for best practices using this open source software and to report vulnerabilities.
+
+[![Known Vulnerabilities](https://snyk.io/test/github/reelyactive/barnacles-elasticsearch/badge.svg)](https://snyk.io/test/github/reelyactive/barnacles-elasticsearch)
+
+
 License
 -------
 
