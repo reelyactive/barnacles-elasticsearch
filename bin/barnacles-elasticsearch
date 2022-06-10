@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const BarnaclesElasticsearch = require('../lib/barnacleselasticsearch.js');
+
+
+let barnaclesElasticsearch = new BarnaclesElasticsearch({ printErrors: true });
+
+
+console.log('barnacles-elasticsearch instantiation test');
