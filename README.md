@@ -1,7 +1,10 @@
 barnacles-elasticsearch
 =======================
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  Stores _raddec_ and/or _dynamb_ events in Elasticsearch.  We believe in an open Internet of Things.
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  Stores _raddec_ and/or _dynamb_ events in Elasticsearch.
+
+- Version 1.1 expects an Elasticsearch v8.x instance, but should be backwards-compatible with v7.x nonetheless
+- Version 1.0 expects an Elasticsearch v7.x instance (see release-1.0 branch)
 
 
 Installation
@@ -40,6 +43,7 @@ __barnacles-elasticsearch__ supports the following options:
 | client        | null                       | An instantiated Elasticsearch client |
 | printErrors   | false                      | Print errors to the console (for debug) |
 | eventsToStore | { raddec: {}, dynamb: {} } | See default event-specific properties below |
+| esVersion     | 8                          | Can be forced to 7 if required |
 
 For raddec events, all [raddec](https://github.com/reelyactive/raddec/) toFlattened() options are supported.  The default is { includePackets: false }.
 
