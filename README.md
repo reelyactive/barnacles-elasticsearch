@@ -36,6 +36,7 @@ __barnacles-elasticsearch__ supports the following options:
 | Property      | Default                    | Description                    | 
 |:--------------|:---------------------------|:-------------------------------|
 | node          | "http://localhost:9200"    | Elasticsearch node             |
+| clientOptions | null                       | Object of parameters for client instantiation |
 | client        | null                       | An instantiated Elasticsearch client |
 | printErrors   | false                      | Print errors to the console (for debug) |
 | eventsToStore | { raddec: {}, dynamb: {} } | See default event-specific properties below |
@@ -43,6 +44,28 @@ __barnacles-elasticsearch__ supports the following options:
 For raddec events, all [raddec](https://github.com/reelyactive/raddec/) toFlattened() options are supported.  The default is { includePackets: false }.
 
 By default __barnacles-elasticsearch__ will connect and write to localhost:9200.
+
+
+Connecting to an Elastic Cloud instance
+---------------------------------------
+
+Connecting to the Elastic Cloud is straightforward using the _clientOptions_ as follows:
+
+```javascript
+const clientOptions = {
+    cloud: { id: "copy-paste from Elastic Cloud dashboard" },
+    auth: {
+        username: "pareto-anywhere",
+        password: "password"
+    }
+}
+barnacles.addInterface(BarnaclesElasticsearch, clientOptions);
+```
+
+Connecting to a self-hosted instance
+------------------------------------
+
+See the [Elasticsearch JavaScript client API documentation on connecting](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/client-connecting.html) to select the appropriate _clientOptions_ for your instance.
 
 
 Contributing
