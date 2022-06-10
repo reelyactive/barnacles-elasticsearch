@@ -3,8 +3,8 @@ barnacles-elasticsearch
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  Stores _raddec_ and/or _dynamb_ events in Elasticsearch.
 
-- Version 1.1 expects an Elasticsearch v8.x instance, but should be backwards-compatible with v7.x nonetheless
-- Version 1.0 expects an Elasticsearch v7.x instance (see release-1.0 branch)
+- __Version 1.1__ expects an Elasticsearch 8.x instance, but should be backwards-compatible with 7.x nonetheless
+- __Version 1.0__ expects an Elasticsearch 7.x instance (see release-1.0 branch)
 
 
 Installation
@@ -63,7 +63,7 @@ const clientOptions = {
         password: "password"
     }
 }
-barnacles.addInterface(BarnaclesElasticsearch, clientOptions);
+barnacles.addInterface(BarnaclesElasticsearch, { clientOptions: clientOptions });
 ```
 
 Connecting to a self-hosted instance
