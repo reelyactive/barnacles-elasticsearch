@@ -1,33 +1,43 @@
 barnacles-elasticsearch
 =======================
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) interface for [barnacles](https://github.com/reelyactive/barnacles/) open source software.  Stores _raddec_ and/or _dynamb_ and/or _spatem_ events in Elasticsearch.
+__barnacles-elasticsearch__ writes IoT data to Elasticsearch.
 
-- __Version 1.1__ expects an Elasticsearch 8.x instance, but should be backwards-compatible with 7.x nonetheless
-- __Version 1.0__ expects an Elasticsearch 7.x instance (see release-1.0 branch)
+![Overview of barnacles-elasticsearch](https://reelyactive.github.io/barnacles-elasticsearch/images/overview.png)
 
+__barnacles-elasticsearch__ ingests a real-time stream of _raddec_ & _dynamb_ objects from [barnacles](https://github.com/reelyactive/barnacles/) and _spatem_ objects from [chimps](https://github.com/reelyactive/chimps/) which it writes to a given Elasticsearch instance.  It couples seamlessly with reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
-Installation
-------------
-
-    npm install barnacles-elasticsearch
+__barnacles-elasticsearch__ is a lightweight [Node.js package](https://www.npmjs.com/package/barnacles-elasticsearch) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.
 
 
-Hello barnacles-elasticsearch
------------------------------
+Pareto Anywhere integration
+---------------------------
 
-The following code will write _simulated_ [raddec](https://github.com/reelyactive/raddec/) data to Elasticsearch running a local server (default port 9200).  The simulated data is provided by [barnowl](https://github.com/reelyactive/barnowl/) which is typically run in conjunction with [barnacles](https://github.com/reelyactive/barnacles/).  Install the _barnowl_, _barnacles_ and _barnacles-elasticsearch_ packages using npm before running the code.
+A common application of __barnacles-elasticsearch__ is to write IoT data from [pareto-anywhere](https://github.com/reelyactive/pareto-anywhere) to a local or remote Elasticsearch database.  Simply follow our [Create a Pareto Anywhere startup script](https://reelyactive.github.io/diy/pareto-anywhere-startup-script/) tutorial using the script below:
 
 ```javascript
-const Barnowl = require('barnowl');
-const Barnacles = require('barnacles');
-const BarnaclesElasticsearch = require('barnacles-elasticsearch');
+#!/usr/bin/env node
 
-let barnowl = new Barnowl();
-barnowl.addListener(Barnowl, {}, Barnowl.TestListener, {});
+const ParetoAnywhere = require('../lib/paretoanywhere.js');
 
-let barnacles = new Barnacles({ barnowl: barnowl });
-barnacles.addInterface(BarnaclesElasticsearch, { /* See options below */ });
+// Edit the options to specify the Elasticsearch instance
+const BARNACLES_ELASTICSEARCH_OPTIONS = {};
+
+// ----- Exit gracefully if the optional dependency is not found -----
+let BarnaclesElasticsearch;
+try {
+  BarnaclesElasticsearch = require('barnacles-elasticsearch');
+}
+catch(err) {
+  console.log('This script requires barnacles-elasticsearch.  Install with:');
+  console.log('\r\n    "npm install barnacles-elasticsearch"\r\n');
+  return console.log('and then run this script again.');
+}
+// -------------------------------------------------------------------
+
+let pa = new ParetoAnywhere();
+pa.barnacles.addInterface(BarnaclesElasticsearch,
+                          BARNACLES_ELASTICSEARCH_OPTIONS);
 ```
 
 
@@ -70,6 +80,13 @@ Connecting to a self-hosted instance
 ------------------------------------
 
 See the [Elasticsearch JavaScript client API documentation on connecting](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/client-connecting.html) to select the appropriate _clientOptions_ for your instance.
+
+
+Project History
+---------------
+
+- __Version 1.1+__ expects an Elasticsearch 8.x instance, but should be backwards-compatible with 7.x nonetheless
+- __Version 1.0__ expects an Elasticsearch 7.x instance (see release-1.0 branch)
 
 
 Contributing
