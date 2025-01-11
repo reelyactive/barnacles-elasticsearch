@@ -5,7 +5,7 @@ __barnacles-elasticsearch__ writes IoT data to Elasticsearch.
 
 ![Overview of barnacles-elasticsearch](https://reelyactive.github.io/barnacles-elasticsearch/images/overview.png)
 
-__barnacles-elasticsearch__ ingests a real-time stream of _raddec_ & _dynamb_ objects from [barnacles](https://github.com/reelyactive/barnacles/) and _spatem_ objects from [chimps](https://github.com/reelyactive/chimps/) which it writes to a given Elasticsearch instance.  It couples seamlessly with reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
+__barnacles-elasticsearch__ ingests a real-time stream of _raddec_ & _dynamb_ objects from [barnacles](https://github.com/reelyactive/barnacles/), and _spatem_ objects from [chimps](https://github.com/reelyactive/chimps/), which it writes to a given Elasticsearch instance.  It couples seamlessly with reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
 __barnacles-elasticsearch__ is a lightweight [Node.js package](https://www.npmjs.com/package/barnacles-elasticsearch) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.
 
@@ -38,6 +38,7 @@ catch(err) {
 let pa = new ParetoAnywhere();
 pa.barnacles.addInterface(BarnaclesElasticsearch,
                           BARNACLES_ELASTICSEARCH_OPTIONS);
+pa.chimps.addInterface(BarnaclesElasticsearch, BARNACLES_ELASTICSEARCH_OPTIONS);
 ```
 
 
